@@ -1,7 +1,4 @@
 // global variables that control the state of the quiz
-var timer = 60;
-var timerId;
-
 var questions = [
   {
     question: "What is the Newest valorant agent?",
@@ -14,41 +11,75 @@ var questions = [
     correctAnswer: "Bruce",
   },
 ];
-var currentQustion = 0;
+
+var currentQuestion = 0;
+var timer = 60;
+var timerId;
 
 // All of our selectors
 
 // functions
 
-function startgame() {
-  // triggered when they press button use event listener
-  // start timer start interval
-  startTimer();
-  // display none/display hidden for CSS
+document.getElementById("startButton").addEventListener("click", function () {
+  this.style.display = "none";
+  document.getElementById("quiz").classList.remove("hidden");
+  nextQuestion();
+  timerId = setInterval(countdown, 1000);
+});
 
-  // Text content for timer
+function countdown() {
+  document.getElementById("timer").textContent = --timer;
+  if (timer <= 0) {
+    gameOver();
+  }
 }
 
 // event listener for beginning quiz
-
-function nextquestion(event) {
-  // triggered when the user selects any answer
-  // figure out what answer the user chose "eventTarget"
-  // check answer if answer is wrong or right
-  // if wrong reduce the time and show that its wrong
-  // increment the current question by 1
-  // save to local storage
-  // change the question
-  // change the choice
+function nextQuestion() {
+  var question = questions[currentQuestion];
+  var quiz = document.getElementById("quiz");
+  quiz.innerHTML = "";
+  var prompt = document.createElement("h2");
+  prompt.textContent = question.prompt;
+  quiz.appendChild(prompt);
+  question.answers.forEach(function (answer, i) {
+    var button = document.createElement("button");
+    button.textContent = answer;
+    button.addEventListener("click", function () {
+      if (answer === question.correctAnswer) {
+        score++;
+        document.getElementById("score").textContent = score;
+      } else {
+        timer -= 10;
+        document.getElementById("timer").textContent = timer;
+      }
+      if (++currentQuestion < questions.length) {
+        nextQuestion();
+      } else {
+        gameOver();
+      }
+    });
+    quiz.appendChild(button);
+  });
 }
 
 function gameOver() {
   // activates when game is over either time out or last question is answered
-  // stops timer
-  // link to the ending page
+  clearInterval(timerId);
+  // score is time left on timer
+  var score = timer;
   // prompts the user for name
-  // display score
-  // if the user finishes before timer ends, stop and record timer
+  var name = prompt(
+    "Quiz Completed. Your score is " +
+      score +
+      ". Enter your name for the high scores"
+  );
+  var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+  highscores.push({ name: name, score: score });
+  // store the highscores into localstorage
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+
+  window.location.href = "./assets/html/HighScores.html";
 }
 
 function SaveName() {
