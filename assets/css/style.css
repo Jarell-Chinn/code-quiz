@@ -1,0 +1,27 @@
+/* center the start button */
+header {
+  background-color: darkred;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+button {
+  height: 75%;
+  width: 20%;
+}
+/* nav to highscores */
+nav {
+  background-color: s;
+}
+nav ul {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  min-width: 200px;
+  text-decoration: none;
+}
+/* make a box for question and options */
+
+/* make a box for timer and score */
