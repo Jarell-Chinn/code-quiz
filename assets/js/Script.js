@@ -83,5 +83,5 @@ function gameOver() {
   // store the highscores into localstorage
   localStorage.setItem("highscores", JSON.stringify(highscores));
 
-  window.location.href = "./assets/html/HighScores.html";
+  window.location.href = "HighScores.html";
 }

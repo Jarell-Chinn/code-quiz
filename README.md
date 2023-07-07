@@ -17,7 +17,7 @@ This is a short quiz to demonstrate my ability to use JavaScript to make an inte
 
 ## Usage
 
-![Front page of the quiz]()
+![Front page of the quiz](assets\images\Quiz.png)
 
 # Learning points/Features
 
