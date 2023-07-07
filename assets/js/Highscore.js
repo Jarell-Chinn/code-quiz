@@ -1,3 +1,5 @@
+// easier to make another js file for the next html
+
 var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
 var highscoresDiv = document.getElementById("highscores");
 highscores.sort(function (a, b) {
