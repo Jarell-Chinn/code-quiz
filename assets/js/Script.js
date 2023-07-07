@@ -1,22 +1,25 @@
 // global variables that control the state of the quiz
 var questions = [
   {
-    question: "What is the Newest valorant agent?",
+    prompt: "What is the Newest valorant agent?",
     answers: ["Chamber", "Astra", "Jett", "Deadlock"],
     correctAnswer: "Deadlock",
   },
   {
-    question: "What is Batman's real name?",
+    prompt: "What is Batman's real name?",
     answers: ["Jack", "Slippin' Jimmy", "Bruce", "Jason"],
     correctAnswer: "Bruce",
+  },
+  {
+    prompt: "Can a match box?",
+    answers: ["Yes", "No", "No, but a tin can", "Yes, one beat mike tyson"],
+    correctAnswer: "No, but a tin can",
   },
 ];
 
 var currentQuestion = 0;
 var timer = 60;
 var timerId;
-
-// All of our selectors
 
 // functions
 
@@ -46,10 +49,7 @@ function nextQuestion() {
     var button = document.createElement("button");
     button.textContent = answer;
     button.addEventListener("click", function () {
-      if (answer === question.correctAnswer) {
-        score++;
-        document.getElementById("score").textContent = score;
-      } else {
+      if (answer !== question.correctAnswer) {
         timer -= 10;
         document.getElementById("timer").textContent = timer;
       }
@@ -80,13 +80,4 @@ function gameOver() {
   localStorage.setItem("highscores", JSON.stringify(highscores));
 
   window.location.href = "./assets/html/HighScores.html";
-}
-
-function SaveName() {
-  // triggered when the user submits their name
-  // save the scores and their name to local storage
-  // read (save them to another var) the existing score
-  // add the new scores to the end of the array
-  // now overwrite the scores with the new array (do these steps in this order)
-  // take the user to the highscore.html
 }
