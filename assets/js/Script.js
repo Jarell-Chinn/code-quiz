@@ -15,6 +15,11 @@ var questions = [
     answers: ["Yes", "No", "No, but a tin can", "Yes, one beat mike tyson"],
     correctAnswer: "No, but a tin can",
   },
+  {
+    prompt: "Who does Michael Scott end up with in The Office",
+    answers: ["Jan Levinson", "Holly Flax", "Carol Stills", "Helene Beesly"],
+    correctAnswer: "Holly Flax",
+  },
 ];
 
 var currentQuestion = 0;
