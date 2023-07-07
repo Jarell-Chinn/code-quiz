@@ -1,4 +1,4 @@
-# Jarell Chinn Portfolio
+# Code-quiz
 
 ## Technology Used
 
@@ -17,7 +17,7 @@ This is a short quiz to demonstrate my ability to use JavaScript to make an inte
 
 ## Usage
 
-![alt text](assets/images/portfolio.png)
+![Front page of the quiz]()
 
 # Learning points/Features
 
