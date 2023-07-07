@@ -27,7 +27,7 @@ var timer = 60;
 var timerId;
 
 // functions
-
+// event listener for beginning quiz
 document.getElementById("startButton").addEventListener("click", function () {
   this.style.display = "none";
   document.getElementById("quiz").classList.remove("hidden");
@@ -42,7 +42,6 @@ function countdown() {
   }
 }
 
-// event listener for beginning quiz
 function nextQuestion() {
   var question = questions[currentQuestion];
   var quiz = document.getElementById("quiz");

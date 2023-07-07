@@ -1,10 +1,13 @@
 /* center the start button */
 header {
-  background-color: darkred;
+  background-color: #7289da;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
+}
+body {
+  background-color: #424549;
 }
 
 button {
@@ -13,15 +16,16 @@ button {
 }
 /* nav to highscores */
 nav {
-  background-color: s;
+  overflow: hidden;
 }
-nav ul {
-  display: flex;
-  justify-content: left;
-  width: 100%;
-  min-width: 200px;
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 15px;
   text-decoration: none;
 }
-/* make a box for question and options */
-
-/* make a box for timer and score */
+nav a:hover {
+  background-color: #36393e;
+}
